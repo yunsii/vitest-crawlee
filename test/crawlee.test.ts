@@ -1,17 +1,10 @@
 // Add import of CheerioCrawler
 import { RequestQueue, CheerioCrawler } from 'crawlee';
-import { assert, expect, test, vi } from 'vitest';
+import { test } from 'vitest';
 
 // Edit an assertion and save to see HMR in action
 
 test('crawlee', async () => {
-  vi.mock('node_modules/ow/dist/index.js', () => ({
-    default: () => ({
-      get: vi.fn(),
-      post: vi.fn(),
-    }),
-  }));
-
   async function start() {
     const requestQueue = await RequestQueue.open();
     await requestQueue.addRequest({ url: 'https://crawlee.dev' });
